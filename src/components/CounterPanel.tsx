@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../hooks'
-import { addOneHundred, increment, decrement, reset, setStep } from '../store/slices/counterSlice'
+import { addOneHundred, decrementOneThousand, increment, decrement, reset, setStep } from '../store/slices/counterSlice'
 import styles from './Panel.module.css'
 
 export default function CounterPanel() {
@@ -17,6 +17,7 @@ export default function CounterPanel() {
           <button className={styles.danger} onClick={() => dispatch(decrement())}>− decrement</button>
           <button className={styles.btn} onClick={() => dispatch(reset())}>reset</button>
           <button className={styles.btn} onClick={() => dispatch(addOneHundred())}>add 100</button>
+          <button className={styles.btn} onClick={() => dispatch(decrementOneThousand())}>decrement 1,000</button>
         </div>
         <div className={styles.sliderRow}>
           <p className={styles.label}>set step</p>

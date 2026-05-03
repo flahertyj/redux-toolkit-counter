@@ -15,9 +15,10 @@ export const counterSlice = createSlice({
     decrement: (state) => { state.value -= state.step },
     reset: (state) => { state.value = 0 },
     addOneHundred: (state) => { state.value += 100 },
+    decrementOneThousand: (state) => { state.value -= 1000 },
     setStep: (state, action: PayloadAction<number>) => { state.step = action.payload },
   },
 })
 
-export const { addOneHundred, increment, decrement, reset, setStep } = counterSlice.actions
+export const { addOneHundred, decrementOneThousand, increment, decrement, reset, setStep } = counterSlice.actions
 export default counterSlice.reducer
