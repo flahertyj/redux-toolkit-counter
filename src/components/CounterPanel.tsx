@@ -1,0 +1,35 @@
+import { useAppDispatch, useAppSelector } from '../hooks'
+import { addOneHundred, increment, decrement, reset, setStep } from '../store/slices/counterSlice'
+import styles from './Panel.module.css'
+
+export default function CounterPanel() {
+  const dispatch = useAppDispatch()
+  const { value, step } = useAppSelector((s) => s.counter)
+
+  return (
+    <div className={styles.grid}>
+      <div className={styles.card}>
+        <p className={styles.label}>value</p>
+        <p className={styles.bigNum}>{value}</p>
+        <p className={styles.sub}>step: {step}</p>
+        <div className={styles.btnRow}>
+          <button className={styles.success} onClick={() => dispatch(increment())}>+ increment</button>
+          <button className={styles.danger} onClick={() => dispatch(decrement())}>− decrement</button>
+          <button className={styles.btn} onClick={() => dispatch(reset())}>reset</button>
+          <button className={styles.btn} onClick={() => dispatch(addOneHundred())}>add 100</button>
+        </div>
+        <div className={styles.sliderRow}>
+          <p className={styles.label}>set step</p>
+          <input
+            type="range" min={1} max={10} value={step}
+            onChange={(e) => dispatch(setStep(Number(e.target.value)))}
+          />
+        </div>
+      </div>
+      <div className={styles.card}>
+        <p className={styles.label}>current state</p>
+        <pre className={styles.stateBox}>{JSON.stringify({ value, step }, null, 2)}</pre>
+      </div>
+    </div>
+  )
+}

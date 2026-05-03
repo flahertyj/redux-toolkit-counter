@@ -1,0 +1,138 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #555;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+.bigNum { font-size: 48px; font-weight: 500; color: #e8e8e8; line-height: 1; margin-bottom: 4px; }
+.sub { font-size: 12px; color: #555; margin-bottom: 1rem; }
+.btnRow { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: transparent;
+  color: #e8e8e8;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  transition: background 0.15s;
+}
+.btn:hover { background: #222; }
+.btn:active { transform: scale(0.97); }
+.success { composes: btn; border-color: #1D9E75; color: #1D9E75; }
+.success:hover { background: rgba(29,158,117,0.08); }
+.danger { composes: btn; border-color: #c0392b; color: #c0392b; }
+.danger:hover { background: rgba(192,57,43,0.08); }
+.stateBox {
+  background: #111;
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-size: 11px;
+  color: #7eb8f7;
+  overflow: auto;
+  max-height: 340px;
+  line-height: 1.6;
+  white-space: pre;
+}
+.sliderRow { margin-top: 1rem; }
+.sliderRow input[type='range'] { width: 100%; margin-top: 6px; accent-color: #7eb8f7; }
+.inputRow { display: flex; gap: 8px; margin-bottom: 0.75rem; }
+.input {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #111;
+  color: #e8e8e8;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  outline: none;
+}
+.input:focus { border-color: #555; }
+.todoList { list-style: none; margin-bottom: 0.75rem; }
+.todoItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid #222;
+  font-size: 13px;
+  color: #e8e8e8;
+}
+.todoItem:last-child { border-bottom: none; }
+.done span { text-decoration: line-through; color: #444; }
+.check {
+  width: 18px; height: 18px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+  color: #fff;
+}
+.checked { background: #1D9E75; border-color: #1D9E75; }
+.del { margin-left: auto; cursor: pointer; color: #444; font-size: 18px; line-height: 1; padding: 0 4px; flex-shrink: 0; }
+.del:hover { color: #c0392b; }
+.filterRow { display: flex; gap: 6px; }
+.filterBtn {
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #2a2a2a;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #555;
+  transition: all 0.15s;
+}
+.activeFilter { background: #e8e8e8; color: #111; border-color: #e8e8e8; }
+.userGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; }
+.userCard { border: 1px solid #2a2a2a; border-radius: 8px; padding: 0.75rem; }
+.avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.userName { font-weight: 500; font-size: 13px; color: #e8e8e8; }
+.userRole { color: #555; font-size: 11px; margin-top: 2px; }
+.badge { display: inline-block; padding: 2px 7px; border-radius: 99px; font-size: 10px; font-weight: 500; margin-top: 6px; }
+.badgeAdmin { background: #0c2a4a; color: #7eb8f7; }
+.badgeUser  { background: #222; color: #888; }
+.cartRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid #222;
+  font-size: 13px;
+}
+.cartRow:last-of-type { border-bottom: none; }
+.cartRow span:first-child { flex: 1; }
+.price { color: #555; min-width: 40px; text-align: right; }
+.total { font-weight: 500; font-size: 14px; text-align: right; margin-top: 8px; color: #e8e8e8; }
+.empty { font-size: 12px; color: #444; padding: 8px 0; }
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}
