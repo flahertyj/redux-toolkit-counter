@@ -1,10 +1,13 @@
+import { useContext } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { addOneHundred, decrementOneThousand, increment, decrement, reset, setStep } from '../store/slices/counterSlice'
 import styles from './Panel.module.css'
+import { TestContext } from '../App'
 
 export default function CounterPanel() {
   const dispatch = useAppDispatch()
   const { value, step } = useAppSelector((s) => s.counter)
+  const ctx = useContext(TestContext);
 
   return (
     <div className={styles.grid}>
@@ -13,8 +16,15 @@ export default function CounterPanel() {
         <p className={styles.bigNum}>{value}</p>
         <p className={styles.sub}>step: {step}</p>
         <div className={styles.btnRow}>
-          <button className={styles.success} onClick={() => dispatch(increment())}>+ increment</button>
-          <button className={styles.danger} onClick={() => dispatch(decrement())}>− decrement</button>
+          <button className={styles.success} onClick={() => { 
+            dispatch(increment());
+            ctx.setTest('abc123');
+
+          }}>+ increment</button>
+          <button className={styles.danger} onClick={() => {
+            dispatch(decrement());
+            ctx.setTest('backwards321');
+          }}>− decrement</button>
           <button className={styles.btn} onClick={() => dispatch(reset())}>reset</button>
           <button className={styles.btn} onClick={() => dispatch(addOneHundred())}>add 100</button>
           <button className={styles.btn} onClick={() => dispatch(decrementOneThousand())}>decrement 1,000</button>

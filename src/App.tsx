@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { createContext, useState } from 'react'
 import CounterPanel from './components/CounterPanel'
 import TodosPanel from './components/TodosPanel'
 import UsersPanel from './components/UsersPanel'
@@ -14,8 +14,11 @@ const TABS: { id: Tab; label: string }[] = [
   { id: 'cart',    label: 'cart slice' },
 ]
 
+export const TestContext = createContext({ test: '', setTest: (input: string) => {}});
+
 export default function App() {
-  const [tab, setTab] = useState<Tab>('counter')
+  const [tab, setTab] = useState<Tab>('counter');
+  const [test, setTest] = useState('test123');
 
   return (
     <div className="app">
@@ -35,7 +38,7 @@ export default function App() {
         ))}
       </nav>
       <main className="main">
-        {tab === 'counter' && <CounterPanel />}
+        {tab === 'counter' && <TestContext.Provider value={{ test, setTest }}><CounterPanel /></TestContext.Provider>}
         {tab === 'todos'   && <TodosPanel />}
         {tab === 'users'   && <UsersPanel />}
         {tab === 'cart'    && <CartPanel />}
