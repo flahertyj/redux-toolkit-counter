@@ -4,6 +4,7 @@ import TodosPanel from './components/TodosPanel'
 import UsersPanel from './components/UsersPanel'
 import CartPanel from './components/CartPanel'
 import './App.css'
+import Light from './components/Light'
 
 type Tab = 'counter' | 'todos' | 'users' | 'cart'
 
@@ -43,6 +44,7 @@ export default function App() {
         {tab === 'users'   && <UsersPanel />}
         {tab === 'cart'    && <CartPanel />}
       </main>
+      <Light />
     </div>
   )
 }

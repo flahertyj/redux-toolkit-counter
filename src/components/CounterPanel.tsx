@@ -17,10 +17,12 @@ export default function CounterPanel() {
         <p className={styles.sub}>step: {step}</p>
         <div className={styles.btnRow}>
           <button className={styles.success} onClick={() => { 
-            dispatch(increment());
-            ctx.setTest('abc123');
-
-          }}>+ increment</button>
+              dispatch(increment());
+              ctx.setTest('abc123');
+            }}
+          >
+            + increment
+          </button>
           <button className={styles.danger} onClick={() => {
             dispatch(decrement());
             ctx.setTest('backwards321');
