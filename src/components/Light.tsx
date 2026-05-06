@@ -10,10 +10,15 @@ export default function Light() {
     const [lightColor, setLightColor] = useState('red');
     useEffect(() => {
         const interval = setInterval(() => {
-            setLightColor((currentLightColor) => {
-                const currentLight = LIGHTS.find(light => light.name === currentLightColor);
-                return currentLight?.next ?? 'red';
-            });
+            // Using setState function
+            // setLightColor((currentLightColor) => {
+            //     const currentLight = LIGHTS.find(light => light.name === currentLightColor);
+            //     return currentLight?.next ?? 'red';
+            // });
+
+            // Simpler way without function, probably fine for this.
+            const currentLight = LIGHTS.find(light => light.name === lightColor);
+            setLightColor(currentLight?.next ?? 'red');
         }, LIGHTS.find((c) => c.name === lightColor)?.duration || 1000);
         return () => clearInterval(interval);
     }, [lightColor]);
