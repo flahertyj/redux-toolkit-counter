@@ -1,0 +1,16 @@
+.example {
+    display: flex;
+    flex-direction: column;
+    background-color: cornflowerblue;
+    color: black;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+
+.inputBox {
+    width: 25%;
+}
+
+.textBox {
+    margin-top: 1rem;
+}
