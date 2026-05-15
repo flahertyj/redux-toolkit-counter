@@ -8,9 +8,15 @@
 }
 
 .inputBox {
-    width: 25%;
+    width: 100%;
 }
 
 .textBox {
     margin-top: 1rem;
+}
+
+@media screen and (min-width: 720px) {
+    .inputBox {
+        width: 25%;
+    }
 }
